@@ -1,0 +1,16 @@
+{
+  "name": "orcid-id-ts",
+  "description": "An ORCID iD library for use with fp-ts.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "homepage": "https://github.com/thewilkybarkid/orcid-id-ts",
+  "repository": "github:thewilkybarkid/orcid-id-ts",
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "husky": "^8.0.1"
+  },
+  "scripts": {
+    "prepare": "which husky && husky install || true"
+  }
+}
