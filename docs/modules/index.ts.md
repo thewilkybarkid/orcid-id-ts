@@ -14,6 +14,8 @@ Added in v0.1.0
 
 - [model](#model)
   - [Orcid (type alias)](#orcid-type-alias)
+- [refinements](#refinements)
+  - [isOrcid](#isorcid)
 
 ---
 
@@ -25,6 +27,18 @@ Added in v0.1.0
 
 ```ts
 export type Orcid = string & OrcidBrand
+```
+
+Added in v0.1.0
+
+# refinements
+
+## isOrcid
+
+**Signature**
+
+```ts
+export declare const isOrcid: Refinement<unknown, Orcid>
 ```
 
 Added in v0.1.0
