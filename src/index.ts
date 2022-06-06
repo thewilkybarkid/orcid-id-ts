@@ -17,6 +17,22 @@ export type Orcid = string & OrcidBrand
 interface OrcidBrand {
   readonly Orcid: unique symbol
 }
+// -------------------------------------------------------------------------------------
+// destructors
+// -------------------------------------------------------------------------------------
+
+/**
+ * @example
+ * import { Orcid, toUrl } from 'orcid-id-ts'
+ *
+ * const url = toUrl('0000-0002-1825-0097' as Orcid)
+ *
+ * assert.deepStrictEqual(url.href, 'https://orcid.org/0000-0002-1825-0097')
+ *
+ * @category destructors
+ * @since 0.1.1
+ */
+export const toUrl: (orcid: Orcid) => URL = orcid => new URL(orcid, 'https://orcid.org')
 
 // -------------------------------------------------------------------------------------
 // refinements

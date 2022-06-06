@@ -2,6 +2,16 @@ import * as _ from '../src'
 import * as fc from './fc'
 
 describe('orcid-id-ts', () => {
+  describe('destructors', () => {
+    test('toUrl', () => {
+      fc.assert(
+        fc.property(fc.orcid(), orcid => {
+          expect(_.toUrl(orcid)).toStrictEqual(new URL(`https://orcid.org/${orcid}`))
+        }),
+      )
+    })
+  })
+
   describe('refinements', () => {
     describe('isOrcid', () => {
       test('with an ORCID', () => {
