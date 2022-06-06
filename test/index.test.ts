@@ -12,6 +12,26 @@ describe('orcid-id-ts', () => {
     })
   })
 
+  describe('instances', () => {
+    describe('Eq', () => {
+      test('with the same ORCID', () => {
+        fc.assert(
+          fc.property(fc.orcid(), orcid => {
+            expect(_.Eq.equals(orcid, orcid)).toBe(true)
+          }),
+        )
+      })
+
+      test('with different ORCIDs', () => {
+        fc.assert(
+          fc.property(fc.orcid(), fc.orcid(), (orcid1, orcid2) => {
+            expect(_.Eq.equals(orcid1, orcid2)).toBe(false)
+          }),
+        )
+      })
+    })
+  })
+
   describe('refinements', () => {
     describe('isOrcid', () => {
       test('with an ORCID', () => {

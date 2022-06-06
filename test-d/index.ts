@@ -1,4 +1,5 @@
 import { expectTypeOf } from 'expect-type'
+import { Eq } from 'fp-ts/Eq'
 import * as _ from '../src'
 
 import Orcid = _.Orcid
@@ -17,3 +18,9 @@ expectTypeOf<string>().not.toMatchTypeOf<Orcid>()
 //
 
 expectTypeOf(_.toUrl(orcid)).toMatchTypeOf<URL>()
+
+//
+// Eq
+//
+
+expectTypeOf(_.Eq).toMatchTypeOf<Eq<Orcid>>()

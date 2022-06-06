@@ -1,7 +1,9 @@
 /**
  * @since 0.1.0
  */
+import * as E from 'fp-ts/Eq'
 import { Refinement } from 'fp-ts/Refinement'
+import * as s from 'fp-ts/string'
 import { toDashFormat } from 'orcid-utils'
 
 // -------------------------------------------------------------------------------------
@@ -33,6 +35,16 @@ interface OrcidBrand {
  * @since 0.1.1
  */
 export const toUrl: (orcid: Orcid) => URL = orcid => new URL(orcid, 'https://orcid.org')
+
+// -------------------------------------------------------------------------------------
+// instances
+// -------------------------------------------------------------------------------------
+
+/**
+ * @category instances
+ * @since 0.1.1
+ */
+export const Eq: E.Eq<Orcid> = E.contramap(s.toLowerCase)(s.Eq)
 
 // -------------------------------------------------------------------------------------
 // refinements
