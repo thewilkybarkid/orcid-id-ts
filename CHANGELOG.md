@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/thewilkybarkid/orcid-id-ts/compare/v0.1.1...v0.1.2) (2022-09-29)
+
+
+### Features
+
+* parse an ORCID iD from a string ([692c769](https://github.com/thewilkybarkid/orcid-id-ts/commit/692c7698ee7927da3590f9672a42c36a0bda33d2))
+
 ### [0.1.1](https://github.com/thewilkybarkid/orcid-id-ts/compare/v0.1.0...v0.1.1) (2022-07-13)
 
 
