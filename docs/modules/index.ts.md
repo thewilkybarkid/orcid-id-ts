@@ -20,6 +20,8 @@ Added in v0.1.0
   - [Orcid (type alias)](#orcid-type-alias)
 - [refinements](#refinements)
   - [isOrcid](#isorcid)
+- [utils](#utils)
+  - [parse](#parse)
 
 ---
 
@@ -80,3 +82,25 @@ export declare const isOrcid: Refinement<unknown, Orcid>
 ```
 
 Added in v0.1.0
+
+# utils
+
+## parse
+
+**Signature**
+
+```ts
+export declare const parse: (s: string) => Option<Orcid>
+```
+
+**Example**
+
+```ts
+import * as O from 'fp-ts/Option'
+import { Orcid, parse } from 'orcid-id-ts'
+
+assert.deepStrictEqual(parse('https://orcid.org/0000-0002-1825-0097'), O.some('0000-0002-1825-0097' as Orcid))
+assert.deepStrictEqual(parse('not an ORCID iD'), O.none)
+```
+
+Added in v0.1.2

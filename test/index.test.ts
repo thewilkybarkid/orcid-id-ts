@@ -1,3 +1,4 @@
+import * as O from 'fp-ts/Option'
 import * as _ from '../src'
 import * as fc from './fc'
 
@@ -46,6 +47,39 @@ describe('orcid-id-ts', () => {
         fc.assert(
           fc.property(fc.anything(), value => {
             expect(_.isOrcid(value)).toBe(false)
+          }),
+        )
+      })
+    })
+  })
+
+  describe('utils', () => {
+    describe('parse', () => {
+      test('when it contains an ORCID iD', () => {
+        fc.assert(
+          fc.property(
+            fc
+              .tuple(
+                fc.orcid(),
+                fc.stringOf(fc.constant(' ')),
+                fc.constantFrom('orcid.org/', 'https://orcid.org/', 'http://orcid.org/'),
+                fc.stringOf(fc.constant(' ')),
+              )
+              .map(([orcid, whitespaceBefore, prefix, whitespaceAfter]) => [
+                orcid,
+                `${whitespaceBefore}${prefix}${orcid}${whitespaceAfter}`,
+              ]),
+            ([orcid, input]) => {
+              expect(_.parse(input)).toStrictEqual(O.some(orcid))
+            },
+          ),
+        )
+      })
+
+      test('when it does not contain an ORCID iD', () => {
+        fc.assert(
+          fc.property(fc.unicodeString(), input => {
+            expect(_.parse(input)).toStrictEqual(O.none)
           }),
         )
       })

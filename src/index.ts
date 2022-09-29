@@ -2,9 +2,13 @@
  * @since 0.1.0
  */
 import * as E from 'fp-ts/Eq'
+import * as O from 'fp-ts/Option'
 import { Refinement } from 'fp-ts/Refinement'
+import { flow } from 'fp-ts/function'
 import * as s from 'fp-ts/string'
 import { toDashFormat } from 'orcid-utils'
+
+import Option = O.Option
 
 // -------------------------------------------------------------------------------------
 // model
@@ -19,6 +23,7 @@ export type Orcid = string & OrcidBrand
 interface OrcidBrand {
   readonly Orcid: unique symbol
 }
+
 // -------------------------------------------------------------------------------------
 // destructors
 // -------------------------------------------------------------------------------------
@@ -61,3 +66,19 @@ export const isOrcid: Refinement<unknown, Orcid> = (u): u is Orcid => {
     return false
   }
 }
+
+// -------------------------------------------------------------------------------------
+// utils
+// -------------------------------------------------------------------------------------
+
+/**
+ * @example
+ * import { Orcid, parse } from 'orcid-id-ts'
+ * import * as O from 'fp-ts/Option'
+ *
+ * assert.deepStrictEqual(parse('https://orcid.org/0000-0002-1825-0097'), O.some('0000-0002-1825-0097' as Orcid))
+ * assert.deepStrictEqual(parse('not an ORCID iD'), O.none)
+ *
+ * @since 0.1.2
+ */
+export const parse: (s: string) => Option<Orcid> = flow(s.trim, O.tryCatchK(toDashFormat as (input: string) => Orcid))
