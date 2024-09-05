@@ -12,6 +12,8 @@ Added in v0.1.0
 
 <h2 class="text-delta">Table of contents</h2>
 
+- [constructors](#constructors)
+  - [Orcid](#orcid)
 - [destructors](#destructors)
   - [toUrl](#tourl)
 - [instances](#instances)
@@ -24,6 +26,28 @@ Added in v0.1.0
   - [parse](#parse)
 
 ---
+
+# constructors
+
+## Orcid
+
+**Signature**
+
+```ts
+export declare function Orcid(orcid: string): Orcid
+```
+
+**Example**
+
+```ts
+import { Orcid } from 'orcid-id-ts'
+
+const orcidId = Orcid('0000-0002-1825-0097')
+
+assert.deepStrictEqual(orcidId, '0000-0002-1825-0097')
+```
+
+Added in v0.1.3
 
 # destructors
 

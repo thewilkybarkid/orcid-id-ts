@@ -3,6 +3,24 @@ import * as _ from '../src'
 import * as fc from './fc'
 
 describe('orcid-id-ts', () => {
+  describe('constructors', () => {
+    test('with an ORCID', () => {
+      fc.assert(
+        fc.property(fc.orcid(), orcid => {
+          expect(_.Orcid(orcid)).toStrictEqual(orcid)
+        }),
+      )
+    })
+
+    test('with a non-ORCID', () => {
+      fc.assert(
+        fc.property(fc.anything(), value => {
+          expect(() => _.Orcid(value as string)).toThrow(new Error('Not an ORCID iD'))
+        }),
+      )
+    })
+  })
+
   describe('destructors', () => {
     test('toUrl', () => {
       fc.assert(

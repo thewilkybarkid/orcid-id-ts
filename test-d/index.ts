@@ -15,6 +15,8 @@ declare const orcid: Orcid
 
 expectTypeOf<Orcid>().toMatchTypeOf<string>()
 expectTypeOf<string>().not.toMatchTypeOf<Orcid>()
+expectTypeOf(Orcid(string)).toMatchTypeOf<Orcid>()
+expectTypeOf(Orcid(orcid)).toMatchTypeOf<Orcid>()
 
 //
 // toUrl

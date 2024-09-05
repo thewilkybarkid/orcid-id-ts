@@ -25,6 +25,29 @@ interface OrcidBrand {
 }
 
 // -------------------------------------------------------------------------------------
+// constructors
+// -------------------------------------------------------------------------------------
+
+/**
+ * @example
+ * import { Orcid } from 'orcid-id-ts'
+ *
+ * const orcidId = Orcid('0000-0002-1825-0097')
+ *
+ * assert.deepStrictEqual(orcidId, '0000-0002-1825-0097')
+ *
+ * @category constructors
+ * @since 0.1.3
+ */
+export function Orcid(orcid: string): Orcid {
+  if (!isOrcid(orcid)) {
+    throw new Error('Not an ORCID iD')
+  }
+
+  return orcid
+}
+
+// -------------------------------------------------------------------------------------
 // destructors
 // -------------------------------------------------------------------------------------
 
