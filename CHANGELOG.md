@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/thewilkybarkid/orcid-id-ts/compare/v0.1.2...v0.1.3) (2024-09-05)
+
+
+### Features
+
+* add a constructor ([501c966](https://github.com/thewilkybarkid/orcid-id-ts/commit/501c9668196b5b857ca569fe73149745c1470536))
+
 ### [0.1.2](https://github.com/thewilkybarkid/orcid-id-ts/compare/v0.1.1...v0.1.2) (2022-09-29)
 
 
